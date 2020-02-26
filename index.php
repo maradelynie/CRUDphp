@@ -13,16 +13,16 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     </head>
     <body>
-        <?php require_once 'process.php'; ?>
+        
         <div class="row justify-content-center">
             <h1>CRUD <i class="fab fa-php fa-lg  "></i></h1>
             <form action="process.php" method="POST">
                 <div class="form-group">
                 <label for="">Nome</label>
-                <input type="text" class="form-control" name="nome" id="form-nome" aria-describedby="helpId" placeholder="">
+                <input type="text" class="form-control" name="nome" id="form-nome" aria-describedby="helpId" placeholder="" require>
                 <small id="helpId" class="form-text text-muted">Como prefere ser chamadx?</small>
                 <label for="">E-mail</label>
-                <input type="email" class="form-control" name="email" id="form-email" aria-describedby="helpId" placeholder="">
+                <input type="email" class="form-control" name="email" id="form-email" aria-describedby="helpId" placeholder="" require>
                 <small id="helpId" class="form-text text-muted">Qual o seu melhor e-mail para contato?</small>
                 <button type="submit" class="btn btn-primary" name="salvar">Enviar</button>
                 </div>
