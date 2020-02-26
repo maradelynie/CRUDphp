@@ -1,5 +1,12 @@
 
+<?php
 
+include 'conexao.php';
+
+$id = $_GET['id'];
+
+
+?>
 <!doctype html>
 <html lang="pt">
     <head>
@@ -16,18 +23,32 @@
         
         <div class="row justify-content-center">
             <h1>CRUD <i class="fab fa-php fa-lg  "></i></h1>
-            <form action="enviar_coleta.php" method="POST">
+            <form action="atualizar_coleta.php" method="POST">
+            <?php 
+            $sql = "SELECT * FROM `dados` WHERE id_coleta = $id";
+
+            $buscar = mysqli_query($conexao,$sql);
+            while ($array = mysqli_fetch_array($buscar)){
+
+                $id_coleta = $array['id_coleta'];
+                $nome = $array['nome'];
+                $email = $array['email'];
+    
+            ?>
                 <div class="form-group">
                 <label for="">Nome</label>
-                <input type="text" class="form-control" name="nome" id="form-nome" aria-describedby="helpId" placeholder="" require>
+                <input type="text" class="form-control" name="nome" id="form-nome" aria-describedby="helpId" value="<?php echo $nome?>">
+
+                <input type="text" class="form-control" name="id" id="form-nome" aria-describedby="helpId" value="<?php echo $id_coleta?>" style="display:none">
+                
                 <small id="helpId" class="form-text text-muted">Como prefere ser chamadx?</small>
                 <label for="">E-mail</label>
-                <input type="email" class="form-control" name="email" id="form-email" aria-describedby="helpId" placeholder="" require>
+                <input type="email" class="form-control" name="email" id="form-email" aria-describedby="helpId" value="<?php echo $email?>" >
                 <small id="helpId" class="form-text text-muted">Qual o seu melhor e-mail para contato?</small>
-                <button type="submit" class="btn btn-primary" name="salvar">Enviar</button> <a name="voltaindex" id="" class="btn btn-primary" href="index.php" role="button">Voltar</a>
+                <button type="submit" class="btn btn-primary" name="salvar">Enviar</button> <a name="voltaindex" id="" class="btn btn-primary" href="listar_coleta.php" role="button">Cancelar</a>
                 </div>
-            </form>
-                   
+            <?php }?>
+            </form>       
         </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
