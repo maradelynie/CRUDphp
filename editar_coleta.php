@@ -14,48 +14,46 @@ $id = $_GET['id'];
         <title>CRUD PHP</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+        
     </head>
     <body>
-        
-        <div class="row justify-content-center">
-            <h1>CRUD <i class="fab fa-php fa-lg  "></i></h1>
-            <form action="atualizar_coleta.php" method="POST">
+        <header>
+            <i class="fab fa-php fa-lg fa-5x"> </i>
+            <span>Projeto simplificado de CRUD com o objetivo de criar um plugin de captura de emails.</span>
+            <a href="../index.php"><div class="botao voltar">x</div></a>
+        </header>
+        <form action="atualizar_coleta.php" method="POST">
             <?php 
-            $sql = "SELECT * FROM `dados` WHERE id_coleta = $id";
+                $sql = "SELECT * FROM `dados` WHERE id_coleta = $id";
 
-            $buscar = mysqli_query($conexao,$sql);
-            while ($array = mysqli_fetch_array($buscar)){
+                $buscar = mysqli_query($conexao,$sql);
+                while ($array = mysqli_fetch_array($buscar)){
 
                 $id_coleta = $array['id_coleta'];
                 $nome = $array['nome'];
                 $email = $array['email'];
     
             ?>
-                <a href="deletar_coleta.php?id=<?php echo $id_coleta ?>" > Deletar Coleta</a>
-                <div class="form-group">
-                <label for="">Nome</label>
-                <input type="text" class="form-control" name="nome" id="form-nome" aria-describedby="helpId" value="<?php echo $nome?>">
+            
+            
+            <label for="nome">Nome</label>
+            <small>Alterar Nome;</small>
+            <input type="text" class="form-coleta" name="nome" value="<?php echo $nome?>">
+                            
+            <input type="text" class="form-coleta" name="id" value="<?php echo $id_coleta?>" style="display:none">
+            
+            <label for="email">E-mail</label>
+            <small>Alterar E-mail;</small>
+            <input type="email" class="form-coleta" name="email"value="<?php echo $email?>" >
+            
 
-                <input type="text" class="form-control" name="id" id="form-nome" aria-describedby="helpId" value="<?php echo $id_coleta?>" style="display:none">
-                
-                <small id="helpId" class="form-text text-muted">Como prefere ser chamadx?</small>
-                <label for="">E-mail</label>
-                <input type="email" class="form-control" name="email" id="form-email" aria-describedby="helpId" value="<?php echo $email?>" >
-                <small id="helpId" class="form-text text-muted">Qual o seu melhor e-mail para contato?</small>
-                <button type="submit" class="btn btn-primary" name="salvar">Enviar</button> <a name="voltaindex" id="" class="btn btn-primary" href="listar_coleta.php" role="button">Cancelar</a>
-                </div>
+
+            <button type="submit" class="botao ok" name="salvar">Enviar</button>
+            <a href="deletar_coleta.php?id=<?php echo $id_coleta ?>" ><div class="botao deletar"><i class="far fa-trash-alt"></i> Deletar Dados</div></a>
             <?php }?>
             
-            </form>       
-        </div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+        </form>       
+    </body>
 </html>

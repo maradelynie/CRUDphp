@@ -12,11 +12,34 @@ $sql = "UPDATE `dados` SET `nome`='$nome',`email`='$email' WHERE id_coleta = $id
 $atualizar = mysqli_query($conexao,$sql);
 
 ?>
-<head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
-<body>
-    <h1> Deu bom!</h1>
-    <a name="voltaindex" id="" class="btn btn-primary" href="listar_coleta.php" role="button">Listar Dados</a>
-    <a name="voltaindex" id="" class="btn btn-primary" href="index.php" role="button">Principal</a>
-</body>
+<!doctype html>
+<html lang="pt">
+    <head>
+        <meta charset="utf-8">  
+        <title>CRUD PHP</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    </head>
+    
+    <body>
+        <header>
+                <i class="fab fa-php fa-lg fa-5x"> </i>
+                <span>Projeto simplificado de CRUD com o objetivo de criar um plugin de captura de emails.</span>
+                <a href="../index.php"><div class="botao voltar">x</div></a>
+        </header>
+        <main>
+            
+        
+            
+            <!--mensagem para sucesso na atualização-->
+            
+            
+            <h1> Atualização Feita com Sucesso</h1>
+            <h3> A coleta atualizada.</h3>
+        <a href="listar_coleta.php" ><div class="botao voltar">Voltar à Listagem</div></a>
+        <a href="../index.php" ><div class="botao voltar">Voltar para o Inicio</div></a>
+    </main>
+    </body>
+</html>
